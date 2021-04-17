@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-
+import Table from "../Table"
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
 function table(props) {
   return (
