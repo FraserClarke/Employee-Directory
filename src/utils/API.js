@@ -4,11 +4,17 @@ import axios from "axios";
 
 export default  {
   getRandomUser: function () {
-    return axios.get("https://randomuser.me/api/");
+    return axios.get("https://randomuser.me/api/?results=200&nat=au");
   },
 };
 
+// const API = {
+//   getRandomUser: function () {
+//     return axios.get("https://randomuser.me/api/");
+//   },
+// };
 
+// export default API;
 //   nationality
 //   https://randomuser.me/api/?nat=au
 
