@@ -9,14 +9,16 @@ function Table(props) {
   return (
     <table className="table table-hover table-dark">
       <thead>
-        <th>Photo</th>
-        <th>
-          name
-          <span onClick={props.sortName}></span>
-        </th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>DOB</th>
+        <tr>
+          <th>Photo</th>
+          <th>
+            name
+            <span onClick={props.sortName}></span>
+          </th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>DOB</th>
+        </tr>
       </thead>
       <tbody></tbody>
     </table>

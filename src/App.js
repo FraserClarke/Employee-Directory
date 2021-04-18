@@ -23,7 +23,9 @@ class App extends Component {
   // When the component mounts, get a list of all available base employees and update this.state.employees
   componentDidMount() {
     API.getRandomUser()
+    
       .then((res) => this.setState({ employees: res.data.message }))
+      
       .catch((err) => console.log(err));
   }
 
