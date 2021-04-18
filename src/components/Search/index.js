@@ -9,7 +9,7 @@ function Search(props) {
     <div>
       <form>
         <input
-          onChange={props.handInputChange}
+          onChange={props.handleInputChange}
           value={props.searchValue}
           type="text"
           placeholder="Enter names to filter"
@@ -19,4 +19,4 @@ function Search(props) {
   );
 }
 
-export default Navbar;
+export default Search;
