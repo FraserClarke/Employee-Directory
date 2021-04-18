@@ -1,42 +1,33 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 import "./style.css";
-import Table from "../Table"
-// Using the datalist element we can create autofill suggestions based on the props.breeds array
-function table(props) {
+import "bootstrap/dist/css/bootstrap.min.css";
+import Row from "./Row";
+
+// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
+function Table(props) {
   return (
     <table className="table table-hover table-dark">
       <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
+        <th>Photo</th>
+        <th>
+          name
+          <span onClick={props.sortName}></span>
+        </th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>DOB</th>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colSpan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
+      <tbody></tbody>
     </table>
   );
 }
 
-export default table;
+export default Table;
+//export Navbar
+// map props.employees to the Tablerow
+// <Row key={} employee = {}>
+
 // import React from "react";
 // import "./style.css";
 

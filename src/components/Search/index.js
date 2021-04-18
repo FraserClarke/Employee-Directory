@@ -1,101 +1,22 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 import "./style.css";
-import API from "../utils/API";
-// Using the datalist element we can create autofill suggestions based on the props.employees array
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class Search extends Component {
-  state = {
-    randomUsers: [{}],
-    filterUsers: [{}],
-    orderUsers: {ascending},
-  };
-
-  // When the component mounts, get a list of all available base employees and update this.state.employees
-  componentDidMount() {
-    API.getRandomUser()
-      .then((res) => this.setState({ name: res.data.message }))
-      .catch((err) => console.log(err));
-  };
-//   loadNextUser = () => {
-//     API.getRandomUser()
-//       .then(res =>
-//         this.setState({
-//           picture: res.data.message
-//         })
-//       )
-//       .catch(err => console.log(err));
-//   };
-
-  handleInputChange = (event) => {
-    this.setState({ search: event.target.value });
-  };
-
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   API.getDogsOfemployee(this.state.search)
-  //     .then(res => {
-  //       if (res.data.status === "error") {
-  //         throw new Error(res.data.message);
-  //       }
-  //       this.setState({ results: res.data.message, error: "" });
-  //     })
-  //     .catch(err => this.setState({ error: err.message }));
-  // };
-  render() {
-    return (
-      <div>
-        <Container style={{ minHeight: "80%" }}>
-          <h1 className="text-center">Search By ?!</h1>
-          <Alert
-            type="danger"
-            style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
-          >
-            {this.state.error}
-          </Alert>
-          <SearchForm
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-            name={this.state.name}
-          />
-          <SearchResults results={this.state.results} />
-        </Container>
-      </div>
-    );
-  }
-}
-
-export default Search;
-
-function SearchForm(props) {
+// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
+function Search(props) {
   return (
-    <form className="search">
-      <div className="form-group">
-        <label htmlFor="employee">employee Name:</label>
+    <div>
+      <form>
         <input
-          value={props.search}
-          onChange={props.handleInputChange}
-          name="employee"
-          list="employees"
+          onChange={props.handInputChange}
+          value={props.searchValue}
           type="text"
-          className="form-control"
-          placeholder="Type in a dog employee to begin"
-          id="employee"
+          placeholder="Enter names to filter"
         />
-        <datalist id="employees">
-          {props.employees.map((employee) => (
-            <option value={employee} key={employee} />
-          ))}
-        </datalist>
-        <button
-          type="submit"
-          onClick={props.handleFormSubmit}
-          className="btn btn-success"
-        >
-          Search
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 
-export default SearchForm;
+export default Navbar;

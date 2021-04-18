@@ -4,40 +4,39 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import utils from "./utils/API.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/Navbar";
-import Wrapper from "./components/Wrapper";
-import Table from "./components/Table";
-import React from "react";
-import "./style.css";
+import Navbar from ".Components/Navbar";
+import Table from "./Components/Table";
+import Search from "./Components/Search";
+// import "./style.css";
 import API from "../utils/API";
 // Using the datalist element we can create autofill suggestions based on the props.employees array
 
-class Search extends Component {
+class App extends Component {
   state = {
-    randomUsers: [{}],
+    employees: [{}],
     filterUsers: [{}],
     orderUsers: {ascending},
+    searchValue =""
   };
 
   // When the component mounts, get a list of all available base employees and update this.state.employees
   componentDidMount() {
     API.getRandomUser()
-      .then((res) => this.setState({ name: res.data.message }))
+      .then((res) => this.setState({ employees: res.data.message }))
       .catch((err) => console.log(err));
   };
-//   loadNextUser = () => {
-//     API.getRandomUser()
-//       .then(res =>
-//         this.setState({
-//           picture: res.data.message
-//         })
-//       )
-//       .catch(err => console.log(err));
-//   };
 
   handleInputChange = (event) => {
-    this.setState({ search: event.target.value });
+    this.setState({ searchValue: event.target.value }, () => this.filterEmployees());
   };
+
+  filterEmployees(){
+
+  }
+
+  sortName = (event) => {
+    
+  }
 
   // handleFormSubmit = event => {
   //   event.preventDefault();
@@ -52,22 +51,40 @@ class Search extends Component {
   // };
   render() {
     return (
-     
-        <Router>
+        // <Router>
       <div>
         <Navbar />
-        <SearchBar/>
-        <Table/>{/* <Route exact path="/" component={About} /> */}
+        <SearchBar
+          searchValue = {this.state.searchValue}
+          handleInputChange = {this.handleInputChange}
+        />
+        <Table
+          employees = {this.state.employees}
+          sortName = {this.sortName}
+
+        />
        
         {/* <Footer /> */}
       </div>
-    </Router>
+    // </Router>
       
     );
   }
 }
 
 export default App;
+
+
+//   loadNextUser = () => {
+//     API.getRandomUser()
+//       .then(res =>
+//         this.setState({
+//           picture: res.data.message
+//         })
+//       )
+//       .catch(err => console.log(err));
+//   };
+
 
 // function SearchForm(props) {
 //   return (
