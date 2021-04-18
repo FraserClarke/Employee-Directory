@@ -20,7 +20,11 @@ function Table(props) {
           <th>DOB</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        {props.employees.map((employee, index) => {
+          return (<tr key={index}>{employee.name.first}</tr>)
+        })}
+      </tbody>
     </table>
   );
 }
