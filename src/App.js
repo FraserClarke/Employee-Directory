@@ -1,22 +1,23 @@
 // import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import utils from "./utils/API.js";
+// import React from "react";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+// import utils from "./utils/API.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from ".Components/Navbar";
-import Table from "./Components/Table";
-import Search from "./Components/Search";
+import Navbar from "./components/Navbar";
+import Table from "./components/Table";
+import Search from "./components/Search";
 // import "./style.css";
-import API from "../utils/API";
+import API from "./utils/API";
 // Using the datalist element we can create autofill suggestions based on the props.employees array
 
 class App extends Component {
   state = {
     employees: [{}],
     filterUsers: [{}],
-    orderUsers: {ascending},
-    searchValue =""
+    orderUsers: "ascending",
+    searchValue: "",
   };
 
   // When the component mounts, get a list of all available base employees and update this.state.employees
@@ -24,19 +25,17 @@ class App extends Component {
     API.getRandomUser()
       .then((res) => this.setState({ employees: res.data.message }))
       .catch((err) => console.log(err));
-  };
+  }
 
   handleInputChange = (event) => {
-    this.setState({ searchValue: event.target.value }, () => this.filterEmployees());
+    this.setState({ searchValue: event.target.value }, () =>
+      this.filterEmployees()
+    );
   };
 
-  filterEmployees(){
+  filterEmployees() {}
 
-  }
-
-  sortName = (event) => {
-    
-  }
+  sortName = (event) => {};
 
   // handleFormSubmit = event => {
   //   event.preventDefault();
@@ -51,29 +50,23 @@ class App extends Component {
   // };
   render() {
     return (
-        // <Router>
+      // <Router>
       <div>
         <Navbar />
-        <SearchBar
-          searchValue = {this.state.searchValue}
-          handleInputChange = {this.handleInputChange}
+        <Search
+          searchValue={this.state.searchValue}
+          handleInputChange={this.handleInputChange}
         />
-        <Table
-          employees = {this.state.employees}
-          sortName = {this.sortName}
+        <Table employees={this.state.employees} sortName={this.sortName} />
 
-        />
-       
         {/* <Footer /> */}
       </div>
-    // </Router>
-      
+      // </Router>
     );
   }
 }
 
 export default App;
-
 
 //   loadNextUser = () => {
 //     API.getRandomUser()
@@ -84,7 +77,6 @@ export default App;
 //       )
 //       .catch(err => console.log(err));
 //   };
-
 
 // function SearchForm(props) {
 //   return (
@@ -119,7 +111,6 @@ export default App;
 // }
 
 // export default SearchForm;
-
 
 // function App() {
 //   utils.getRandomUser().then((data) => console.log(data));
