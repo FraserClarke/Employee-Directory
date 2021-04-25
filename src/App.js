@@ -18,6 +18,7 @@ class App extends Component {
     filterUsers: [],
     orderUsers: "ascending",
     searchValue: "",
+    sortName: true,
   };
 
   // When the component mounts, get a list of all available base employees and update this.state.employees
@@ -42,7 +43,9 @@ class App extends Component {
 
   filterEmployees() {}
 
-  sortName = (event) => {};
+  sortName = (event) => {
+    
+  };
 
   // handleFormSubmit = event => {
   //   event.preventDefault();

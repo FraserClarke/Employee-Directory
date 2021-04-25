@@ -14,7 +14,9 @@ function Table(props) {
           <th>Photo</th>
           <th>
             name
-            <span onClick={props.sortName}></span>
+            <span onClick={props.sortName}>
+              <i className="fa fa fa-sort"></i>
+            </span>
           </th>
           <th>Phone</th>
           <th>Email</th>
@@ -22,10 +24,9 @@ function Table(props) {
         </tr>
       </thead>
       <tbody>
-        {props.employees.map((employee, index) => {
-          console.log(JSON.stringify.employee);
-          return  (<Row key={index}>{employee}</Row>)
-        })}
+        {props.employees.map((employee, index) => (
+          <Row key={index} employee={employee} />
+        ))}
       </tbody>
     </table>
   );
