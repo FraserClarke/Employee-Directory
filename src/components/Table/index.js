@@ -2,7 +2,8 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Row from "./Row";
+
+import Row from "../Row/";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Table(props) {
@@ -22,7 +23,8 @@ function Table(props) {
       </thead>
       <tbody>
         {props.employees.map((employee, index) => {
-          return (<tr key={index}>{employee.name.first}</tr>)
+          console.log(JSON.stringify.employee);
+          return  (<Row key={index}>{employee}</Row>)
         })}
       </tbody>
     </table>
