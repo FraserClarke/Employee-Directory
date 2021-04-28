@@ -3,9 +3,9 @@ import React from "react";
 function Row(props) {
   return (
     <tr>
-      {/* <td>
+      <td>
         <img src={props.employee.picture.thumbnail} alt="profile" />
-      </td> */}
+      </td>
       <td>{props.employee.name.first}</td>
       <td>{props.employee.name.last}</td>
       <td>{props.employee.email}</td>
