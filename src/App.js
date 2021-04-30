@@ -28,8 +28,10 @@ class App extends Component {
           filterUsers: res.data.results,
         })
       )
+
       .catch((err) => console.log(err));
   }
+
   handleInputChange = (event) => {
     this.setState({ searchValue: event.target.value }, () =>
       this.filterEmployees()
@@ -37,34 +39,41 @@ class App extends Component {
   };
   filterEmployees() {}
   sortName = (event) => {
-    if(this.state.sortName){
+    if (this.state.sortName) {
       this.setState({
         employeesOrdered: this.sortNameAscending(this.state.employees),
-        sortName: false
-        
-      })
-    }
-    else {
+        sortName: false,
+      });
+    } else {
       this.setState({
         employeesOrdered: this.sortNameDescending(this.state.employees),
-        sortName: false
-      })
+        sortName: false,
+      });
     }
   };
-  sortNameAscending =(employees) => {
-    employees.sort(function(a, b){
-    if(a.firstname < b.firstname) { return -1; }
-    if(a.firstname > b.firstname) { return 1; }
-    return 0;
-})
-  };
-  sortNameDescending =(employees) => {
-    employees.sort(function(a, b){
-      if(a.firstname < b.firstname) { return +1; }
-      if(a.firstname > b.firstname) { return 1; }
+  sortNameAscending = (employees) => {
+    console.log(employees);
+    employees.sort(function (a, b) {
+      if (a.name.first < b.name.first) {
+        return -1;
+      }
+      if (a.name.first > b.name.first) {
+        return 1;
+      }
       return 0;
-  })
-};
+    });
+  };
+  sortNameDescending = (employees) => {
+    employees.sort(function (a, b) {
+      if (a.name.first < b.name.first) {
+        return -1;
+      }
+      if (a.name.first > b.name.first) {
+        return 1;
+      }
+      return 0;
+    });
+  };
   // headings = [
   //   { name: "Image", width: "10%" },
   //   { name: "Name", width: "10%" },
@@ -114,6 +123,7 @@ class App extends Component {
   //     }
 
   //   }
+  // }
 
   // handleFormSubmit = event => {
   //   event.preventDefault();
@@ -126,6 +136,7 @@ class App extends Component {
   //     })
   //     .catch(err => this.setState({ error: err.message }));
   // };
+
   render() {
     return (
       // <Router>
@@ -135,13 +146,14 @@ class App extends Component {
           searchValue={this.state.searchValue}
           handleInputChange={this.handleInputChange}
         />
-        <Table employees={this.state.employeesOrdered} sortName={this.sortName} />
+        <Table employees={this.state.employees} sortName={this.sortName} />
         {/* <Footer /> */}
       </div>
       // </Router>
     );
   }
 }
+
 export default App;
 //   loadNextUser = () => {
 //     API.getRandomUser()
