@@ -13,14 +13,14 @@ function Table(props) {
         <tr>
           <th>Photo</th>
           <th>
-            name
+            Name
             <span onClick={props.sortName}>
               <i className="fa fa fa-sort"></i>
             </span>
           </th>
           <th>Phone</th>
           <th>Email</th>
-          <th>DOB</th>
+          <th>Age</th>
         </tr>
       </thead>
       <tbody>
