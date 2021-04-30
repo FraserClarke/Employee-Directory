@@ -41,6 +41,7 @@ class App extends Component {
       this.setState({
         employeesOrdered: this.sortNameAscending(this.state.employees),
         sortName: false
+        
       })
     }
     else {
@@ -56,9 +57,64 @@ class App extends Component {
     if(a.firstname > b.firstname) { return 1; }
     return 0;
 })
-  }
+  };
   sortNameDescending =(employees) => {
-  }
+    employees.sort(function(a, b){
+      if(a.firstname < b.firstname) { return +1; }
+      if(a.firstname > b.firstname) { return 1; }
+      return 0;
+  })
+};
+  // headings = [
+  //   { name: "Image", width: "10%" },
+  //   { name: "Name", width: "10%" },
+  //   { name: "Phone", width: "20%" },
+  //   { name: "Email", width: "20%" },
+  //   { name: "DOB", width: "10%" }
+  // ]
+
+  // handleSort = heading => {
+  //   if (this.state.order === "descend") {
+  //     this.setState({
+  //       order: "ascend"
+  //     })
+  //   } else {
+  //     this.setState({
+  //       order: "descend"
+  //     })
+  //   }
+
+  //   const compareFnc = (a, b) => {
+  //     if (this.state.order === "ascend") {
+  //       // account for missing values
+  //       if (a[heading] === undefined) {
+  //         return 1;
+  //       } else if (b[heading] === undefined) {
+  //         return -1;
+  //       }
+  //       // numerically
+  //       else if (heading === "name") {
+  //         return a[heading].first.localeCompare(b[heading].first);
+  //       } else {
+  //         return a[heading] - b[heading];
+  //       }
+  //     } else {
+  //       // account for missing values
+  //       if (a[heading] === undefined) {
+  //         return 1;
+  //       } else if (b[heading] === undefined) {
+  //         return -1;
+  //       }
+  //       // numerically
+  //       else if (heading === "name") {
+  //         return b[heading].first.localeCompare(a[heading].first);
+  //       } else {
+  //         return b[heading] - a[heading];
+  //       }
+  //     }
+
+  //   }
+
   // handleFormSubmit = event => {
   //   event.preventDefault();
   //   API.getDogsOfemployee(this.state.search)
