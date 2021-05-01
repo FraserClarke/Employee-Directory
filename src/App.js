@@ -65,10 +65,10 @@ class App extends Component {
   };
   sortNameDescending = (employees) => {
     employees.sort(function (a, b) {
-      if (a.name.first < b.name.first) {
+      if (a.name.first > b.name.first) {
         return -1;
       }
-      if (a.name.first > b.name.first) {
+      if (a.name.first < b.name.first) {
         return 1;
       }
       return 0;
