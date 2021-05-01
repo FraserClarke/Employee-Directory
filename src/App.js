@@ -38,6 +38,20 @@ class App extends Component {
     );
   };
   filterEmployees() {}
+
+  filterEmployees = (employeeFilter) => {
+    let filterUsers = this.state.filterUsers;
+    filterUsers = filterUsers.filter((employee) => {
+      console.log(employee);
+      let employeeName =
+        employee.name.first.toLowerCase() + employee.name.last.toLowerCase();
+      return employeeName.indexOf(employeeFilter.toLowerCase()) !== -1;
+    });
+    this.setState({
+      filterUsers,
+    });
+  };
+
   sortName = (event) => {
     if (this.state.sortName) {
       this.setState({
@@ -47,7 +61,7 @@ class App extends Component {
     } else {
       this.setState({
         employeesOrdered: this.sortNameDescending(this.state.employees),
-        sortName: false,
+        sortName: true,
       });
     }
   };
