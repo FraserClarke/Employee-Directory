@@ -37,15 +37,15 @@ class App extends Component {
       this.filterEmployees()
     );
   };
-  filterEmployees() {}
+  // filterEmployees() {}
 
-  filterEmployees = (employeeFilter) => {
-    let filterUsers = this.state.filterUsers;
-    filterUsers = filterUsers.filter((employee) => {
-      console.log(employee);
-      let employeeName =
-        employee.name.first.toLowerCase() + employee.name.last.toLowerCase();
-      return employeeName.indexOf(employeeFilter.toLowerCase()) !== -1;
+  filterEmployees = (searchValue) => {
+    let filterUsers = this.state.searchValue;
+    filterUsers = this.state.employees.filter((employees) => {
+      console.log(employees);
+      let employeesName =
+        employees.name.first.toLowerCase() + employees.name.last.toLowerCase();
+      return employeesName.indexOf(searchValue.toLowerCase()) !== -1;
     });
     this.setState({
       filterUsers,
@@ -88,56 +88,6 @@ class App extends Component {
       return 0;
     });
   };
-  // headings = [
-  //   { name: "Image", width: "10%" },
-  //   { name: "Name", width: "10%" },
-  //   { name: "Phone", width: "20%" },
-  //   { name: "Email", width: "20%" },
-  //   { name: "DOB", width: "10%" }
-  // ]
-
-  // handleSort = heading => {
-  //   if (this.state.order === "descend") {
-  //     this.setState({
-  //       order: "ascend"
-  //     })
-  //   } else {
-  //     this.setState({
-  //       order: "descend"
-  //     })
-  //   }
-
-  //   const compareFnc = (a, b) => {
-  //     if (this.state.order === "ascend") {
-  //       // account for missing values
-  //       if (a[heading] === undefined) {
-  //         return 1;
-  //       } else if (b[heading] === undefined) {
-  //         return -1;
-  //       }
-  //       // numerically
-  //       else if (heading === "name") {
-  //         return a[heading].first.localeCompare(b[heading].first);
-  //       } else {
-  //         return a[heading] - b[heading];
-  //       }
-  //     } else {
-  //       // account for missing values
-  //       if (a[heading] === undefined) {
-  //         return 1;
-  //       } else if (b[heading] === undefined) {
-  //         return -1;
-  //       }
-  //       // numerically
-  //       else if (heading === "name") {
-  //         return b[heading].first.localeCompare(a[heading].first);
-  //       } else {
-  //         return b[heading] - a[heading];
-  //       }
-  //     }
-
-  //   }
-  // }
 
   // handleFormSubmit = event => {
   //   event.preventDefault();
@@ -169,59 +119,3 @@ class App extends Component {
 }
 
 export default App;
-//   loadNextUser = () => {
-//     API.getRandomUser()
-//       .then(res =>
-//         this.setState({
-//           picture: res.data.message
-//         })
-//       )
-//       .catch(err => console.log(err));
-//   };
-// function SearchForm(props) {
-//   return (
-//     <form className="search">
-//       <div className="form-group">
-//         <label htmlFor="employee">employee Name:</label>
-//         <input
-//           value={props.search}
-//           onChange={props.handleInputChange}
-//           name="employee"
-//           list="employees"
-//           type="text"
-//           className="form-control"
-//           placeholder="Type in a dog employee to begin"
-//           id="employee"
-//         />
-//         <datalist id="employees">
-//           {props.employees.map((employee) => (
-//             <option value={employee} key={employee} />
-//           ))}
-//         </datalist>
-//         <button
-//           type="submit"
-//           onClick={props.handleFormSubmit}
-//           className="btn btn-success"
-//         >
-//           Search
-//         </button>
-//       </div>
-//     </form>
-//   );
-// }
-// export default SearchForm;
-// function App() {
-//   utils.getRandomUser().then((data) => console.log(data));
-//   return (
-//     <Router>
-//       <div>
-//         <Navbar />
-//         <Wrapper>
-//           <Table>{/* <Route exact path="/" component={About} /> */}</Table>
-//         </Wrapper>
-//         {/* <Footer /> */}
-//       </div>
-//     </Router>
-//   );
-// }
-// export default App;
