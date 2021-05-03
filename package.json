@@ -1,6 +1,7 @@
 {
-  "homepage": "https://FraserClarke.github.io/Employee-Directory",
+  
   "name": "employee-directory",
+  "homepage": "https://fraserclarke.github.io/Employee-Directory/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
