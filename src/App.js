@@ -39,7 +39,7 @@ class App extends Component {
   };
   // filterEmployees() {}
 
-  filterEmployees = (searchValue) => {
+  filterEmployees = () => {
     let filterUsers = this.state.searchValue;
     filterUsers = this.state.employees.filter((employees) => {
       console.log(employees);
@@ -48,27 +48,26 @@ class App extends Component {
       return employeesName.indexOf(this.state.searchValue.toLowerCase()) !== -1;
     });
     this.setState({
-      filterUsers,
+      filterUsers: filterUsers,
     });
   };
 
-  sortName = (event) => {
+  sortName = () => {
     if (this.state.sortName) {
       this.setState({
-        employeesOrdered: this.sortNameAscending(this.state.employees),
-        sortName: false,
-        // filterUsers: false,
+       // employees: this.sortNameAscending(this.state.employees),
+        filterUsers: this.sortNameAscending(this.state.filterUsers),
+        sortName: false
       });
     } else {
       this.setState({
-        employeesOrdered: this.sortNameDescending(this.state.employees),
-        sortName: true,
-        // filterUsers: true,
+        //employees: this.sortNameDescending(this.state.employees),
+        filterUsers: this.sortNameDescending(this.state.filterUsers),
+        sortName: true
       });
     }
   };
   sortNameAscending = (employees) => {
-    console.log(employees);
     employees.sort(function (a, b) {
       if (a.name.first < b.name.first) {
         return -1;
@@ -78,6 +77,7 @@ class App extends Component {
       }
       return 0;
     });
+    return employees;
   };
   sortNameDescending = (employees) => {
     employees.sort(function (a, b) {
@@ -89,6 +89,7 @@ class App extends Component {
       }
       return 0;
     });
+    return employees;
   };
 
   // handleFormSubmit = event => {
