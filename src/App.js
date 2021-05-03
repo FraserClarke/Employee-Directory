@@ -45,7 +45,7 @@ class App extends Component {
       console.log(employees);
       let employeesName =
         employees.name.first.toLowerCase() + employees.name.last.toLowerCase();
-      return employeesName.indexOf(searchValue.toLowerCase()) !== -1;
+      return employeesName.indexOf(this.state.searchValue.toLowerCase()) !== -1;
     });
     this.setState({
       filterUsers,
@@ -57,11 +57,13 @@ class App extends Component {
       this.setState({
         employeesOrdered: this.sortNameAscending(this.state.employees),
         sortName: false,
+        // filterUsers: false,
       });
     } else {
       this.setState({
         employeesOrdered: this.sortNameDescending(this.state.employees),
         sortName: true,
+        // filterUsers: true,
       });
     }
   };
@@ -110,7 +112,7 @@ class App extends Component {
           searchValue={this.state.searchValue}
           handleInputChange={this.handleInputChange}
         />
-        <Table employees={this.state.employees} sortName={this.sortName} />
+        <Table employees={this.state.filterUsers} sortName={this.sortName} />
         {/* <Footer /> */}
       </div>
       // </Router>
