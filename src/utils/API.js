@@ -4,12 +4,9 @@ import axios from "axios";
 
 export default {
   getRandomUser: function () {
-    return axios.get("https://randomuser.me/api/?results=10&nat=au");
-   
+    return axios.get("https://randomuser.me/api/?results=150&nat=au");
   },
- 
 };
-
 
 // const API = {
 //   getRandomUser: function () {

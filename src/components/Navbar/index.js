@@ -6,10 +6,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
   return (
-    <nav className="navbar navbar-dark bg-primary">
+    <header className="navbarHeader">
       {/* <nav class="navbar navbar-dark bg-primary"></nav> */}
       Employee Directory
-    </nav>
+    </header>
   );
 }
 
